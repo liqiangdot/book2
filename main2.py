@@ -541,14 +541,14 @@ class C_DownFiles:
 
 
 def get_down_objects():
-    if os.path.exists(ROOT_OBJECT):
+    if os.path.exists(ROOT_OBJECT2):
         print("\n对象文件已存在，可以直接读取到对象列表中。")
-        f = open(ROOT_OBJECT, 'rb')
+        f = open(ROOT_OBJECT2, 'rb')
         global GLOBAL_DOWN_LIST
         GLOBAL_DOWN_LIST = pickle.load(f)
     else:
         print("\n对象文件不存在，直接读取Excel到对象列表中。")
-        get_books_list()
+        get_books_list2()
     global GLOBAL_DOWN_NUMBER
     GLOBAL_DOWN_NUMBER = len(GLOBAL_DOWN_LIST)
     print("下载对象总数[%d]" % (GLOBAL_DOWN_NUMBER))
@@ -556,7 +556,7 @@ def get_down_objects():
 
 def updata_all_objects(i):
     if ( i % 100  == 0):
-        save_all_objects()
+        save_all_objects2()
     
 def download_file():
     i = 1
