@@ -18,7 +18,7 @@ from requests_html import HTMLSession
 ROOT_SHEET = "藏书目录"
 ROOT_WEB = 'https://drive.my-elibrary.com'
 
-ROOT_DIR = 'Z:\backup_other\data'
+ROOT_DIR = 'Z:\\backup_other\data'
 ROOT_EXCEL = '1.xlsx'
 # 对象列表
 ROOT_OBJECT = 'all.object'
@@ -587,9 +587,7 @@ def download_file2():
           (i, GLOBAL_DOWN_NUMBER, GLOBAL_DOWN_SUCCE_NUMBER, GLOBAL_DOWN_3RDLIST_NUMBER, GLOBAL_DOWN_ERROR_NUMBER, str_time, size2Time(total_sec)))
         i = i + 1
         print("当前下载：%s" % (o.name))
-
-        #o.down_file()
-        time.sleep(1)
+        o.down_file()
         # 检查返回值，成功从对象列表中删除。
         if o.status == 0:
             GLOBAL_DOWN_LIST.remove(o)
@@ -613,7 +611,7 @@ def get_books_list():
         # 特殊字符替换
         save_dir = save_dir.replace('?', '.')
         down_url = get_down_url(url_list[2])  # 下载URL
-        print("从Excel文件读取：%s" % (save_dir))
+        #print("从Excel文件读取：%s" % (save_dir))
         file_save = C_DownFiles(save_dir, down_url)
         GLOBAL_DOWN_LIST.append(file_save)
 
@@ -630,12 +628,12 @@ def get_books_list2():
         # 特殊字符替换
         save_dir = save_dir.replace('?', '.')
         down_url = get_down_url(url_list[2])  # 下载URL
-        print("从Excel文件读取：%s" % (save_dir))
+        #print("从Excel文件读取：%s" % (save_dir))
         file_save = C_DownFiles(save_dir, down_url)
         GLOBAL_DOWN_LIST.insert(0, file_save)
 
     # 更新下载对象到本地文件中
-    save_all_objects()
+    save_all_objects2()
 
 class SharedCounter:
     '''
